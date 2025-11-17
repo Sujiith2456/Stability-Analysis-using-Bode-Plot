@@ -6,6 +6,9 @@ Computer with MATLAB software
 
 ## Theory:
 
+![WhatsApp Image 2025-11-16 at 14 10 59_2e0f8893](https://github.com/user-attachments/assets/7d1f21c0-8114-41ab-8ad1-4439cb658694)
+
+![WhatsApp Image 2025-11-16 at 14 10 59_217c8ece](https://github.com/user-attachments/assets/2b2e017e-76ff-4824-b200-0f5b7361b37e)
 
 
 ## Procedure:
@@ -17,13 +20,31 @@ Computer with MATLAB software
 	Also determine the stability.
 
 ## Program: 
-
+```
+num=[1];
+den=[0.05 0.6 1 0];
+sys=tf(num,den)
+bode(sys)
+grid on;
+[gm pm wpc wgc]=margin(sys)
+gmindb=20*log10(gm)
+if(wpc>wgc)
+    disp('stable')
+elseif(wpc==wgc)
+    disp('marginally stable')
+else
+    disp('unstable')
+end
+```
 ## Output:
+
+<img width="1711" height="1007" alt="image" src="https://github.com/user-attachments/assets/d925d36b-6707-4801-b689-6e57d54714e9" />
 
 ## Result:
 Thus the bode plot for the given transfer function was drawn and verified using MATLAB. <br>
-Gain margin = <br>
-Phase Margin = <br>
-Gain crossover frequency = <br>
-Phase crossover frequency = <br>
-The system is  ------------
+
+Gain margin = 6.7082 (16.5330 dB)<br>
+Phase Margin = 16.2940 deg <br>
+Gain crossover frequency =  0.8710 rad/s <br>
+Phase crossover frequency = 4.4721 rad/s <br>
+The system is  stable
